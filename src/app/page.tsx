@@ -6,10 +6,11 @@ import Loading from "@/components/commons/Loading";
 import Menu from "@/components/commons/Menu";
 import Message from "@/components/commons/Message";
 import { useState } from "react";
-import useModal from "./hooks/useModal";
+
 import Modal from "@/components/commons/modals/Modal";
 import Form from "@/components/commons/Form";
 import { useForm } from "react-hook-form";
+import useModal from "@/hooks/useModal";
 
 export default function Home() {
   const form = useForm();
