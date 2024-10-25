@@ -5,6 +5,7 @@ type Item = {
   label: string;
   name: string;
   required?: string;
+  type?: string;
 };
 
 type Props = {
@@ -25,6 +26,7 @@ export default function Form({ form, onSubmit, items }: Props) {
             label={item.label}
             register={form.register}
             name={item.name}
+            type={item.type}
             options={{ required: item.required }}
             error={Boolean(form.formState.errors[item.name])}
             helperText={
@@ -42,7 +44,7 @@ export default function Form({ form, onSubmit, items }: Props) {
         type="submit"
         className="mt-4"
       >
-        Gửi
+        Submit
       </Button>
     </form>
   );

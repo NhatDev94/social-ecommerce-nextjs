@@ -20,6 +20,7 @@ export default function Input({
 }: Props) {
   return (
     <MuiTextField
+      className="w-full"
       label={label}
       variant={variant}
       {...register(name, options)}

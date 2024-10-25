@@ -22,6 +22,7 @@ export default function Message({
       open={open}
       autoHideDuration={props.autoHideDuration | 2000}
       onClose={onClose}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       {...props}
     >
       <Alert
