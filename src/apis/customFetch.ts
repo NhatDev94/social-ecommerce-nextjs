@@ -7,6 +7,9 @@ export default function customFetch(endpoint: string, options?: Options) {
 
   const customOptions = {
     method: options?.method || "GET",
+    headers: options?.headers || {
+      "content-type": "application/json",
+    },
     ...options,
   };
   const res = fetch(domain + endpoint, customOptions).then((res) => res.json());

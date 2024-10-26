@@ -1,5 +1,6 @@
 "use client";
 
+import accountService from "@/apis/account";
 import Form from "@/components/commons/Form";
 import Loading from "@/components/commons/Loading";
 import { useRouter } from "next/navigation";
@@ -30,16 +31,20 @@ export default function FormSignUp() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (value: any) => {
-    setIsLoading(true);
-    console.log(value);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-  };
-
   const goSignIn = () => {
     router.push("/account/sign-in");
+  };
+
+  const handleSubmit = async (value: any) => {
+    setIsLoading(true);
+    const res = await accountService.signUp(value);
+    setIsLoading(false);
+    console.log(res);
+    if (res.status === "success") {
+      goSignIn();
+      return;
+    }
+    // Message
   };
 
   return (

@@ -1,20 +1,18 @@
-import { InputSignIn } from "@/libs/types/account";
+import { InputSignIn, InputSignUp } from "@/libs/types/account";
 import customFetch from "./customFetch";
 
 const accountService = {
-  signIn: async (input: InputSignIn) => {
-    const payload = {
-      username: input.username,
-      password: input.password,
-    };
-    const res = customFetch("/account/sign-in", {
+  signIn: (input: InputSignIn) => {
+    return customFetch("/account/sign-in", {
       method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(input),
     });
-    return res;
+  },
+  signUp: (input: InputSignUp) => {
+    return customFetch("/account/sign-up", {
+      method: "POST",
+      body: JSON.stringify(input),
+    });
   },
 };
 
