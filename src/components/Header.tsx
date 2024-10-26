@@ -13,7 +13,9 @@ export default function Header() {
   const menuItems = [
     {
       name: "Profile",
-      onClick: () => {},
+      onClick: () => {
+        router.push("/account/profile");
+      },
     },
     {
       name: "Admin",
