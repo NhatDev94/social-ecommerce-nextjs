@@ -36,13 +36,16 @@ export default function Header() {
   const goHome = () => {
     router.push("/");
   };
-  const avatar = user ? (
+  const avatar = !!user?.avatar ? (
     <img
       src={user.avatar}
       alt="avatar"
       className="w-full h-full object-cover"
     />
-  ) : undefined;
+  ) : (
+    <span className="text-sm font-semibold text-white">S</span>
+  );
+  const menuImage = user ? avatar : undefined;
 
   return (
     <div className="w-full h-16 shadow-lg flex items-center justify-between px-10">
@@ -56,7 +59,7 @@ export default function Header() {
         <Menu
           items={menuItems}
           triggerClass="rounded-full w-9 h-9 bg-violet-500 flex items-center justify-center"
-          triggerContent={avatar}
+          triggerContent={menuImage}
         />
       ) : (
         <Button onClick={goSignIn}>Sign In</Button>
