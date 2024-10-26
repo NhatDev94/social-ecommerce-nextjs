@@ -3,12 +3,12 @@ import { useRouter } from "next/navigation";
 import Button from "./commons/Button";
 import Menu from "./commons/Menu";
 import { useAppContext } from "@/app/context";
+import defaultAvatar from "@/assets/images/defaultAvatar.jpg";
 
 export default function Header() {
   const router = useRouter();
 
   const { user, setUser } = useAppContext();
-  console.log(user);
 
   const menuItems = [
     {
@@ -38,16 +38,18 @@ export default function Header() {
   const goHome = () => {
     router.push("/");
   };
-  const avatar = !!user?.avatar ? (
-    <img
-      src={user.avatar}
-      alt="avatar"
-      className="w-full h-full object-cover"
-    />
-  ) : (
-    <span className="text-sm font-semibold text-white">S</span>
+  const avatar = (
+    <div className="w-full h-full rounded-full overflow-hidden border-2 border-gray-200">
+      <img
+        src={user?.avatar || defaultAvatar}
+        alt="avatar"
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          e.target.src = defaultAvatar;
+        }}
+      />
+    </div>
   );
-  const menuImage = user ? avatar : undefined;
 
   return (
     <div className="w-full h-16 shadow-lg flex items-center justify-between px-10">
@@ -60,8 +62,8 @@ export default function Header() {
       {user ? (
         <Menu
           items={menuItems}
-          triggerClass="rounded-full w-9 h-9 bg-violet-500 flex items-center justify-center"
-          triggerContent={menuImage}
+          triggerClass="rounded-full w-9 h-9 flex items-center justify-center"
+          triggerContent={avatar}
         />
       ) : (
         <Button onClick={goSignIn}>Sign In</Button>

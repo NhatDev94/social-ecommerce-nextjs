@@ -39,7 +39,6 @@ export default function FormSignUp() {
     setIsLoading(true);
     const res = await accountService.signUp(value);
     setIsLoading(false);
-    console.log(res);
     if (res.status === "success") {
       goSignIn();
       return;

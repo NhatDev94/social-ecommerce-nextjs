@@ -14,6 +14,12 @@ const accountService = {
       body: JSON.stringify(input),
     });
   },
+  updateAvatar: async (username: string, base64: string) => {
+    return customFetch("/account/change-avatar", {
+      method: "POST",
+      body: JSON.stringify({ username, base64 }),
+    });
+  },
 };
 
 export default accountService;
