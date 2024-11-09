@@ -6,7 +6,7 @@ import Loading from "@/components/commons/Loading";
 import Upload from "@/components/commons/Upload";
 import { FileUpload } from "@/libs/types/fileUpload";
 import { useState } from "react";
-import defaultAvatar from "@/assets/images/defaultAvatar.jpg";
+import Image from "@/components/commons/Image";
 
 export default function Info() {
   const { user, setUser } = useAppContext();
@@ -45,14 +45,8 @@ export default function Info() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <img
-            src={user?.avatar || defaultAvatar}
-            alt="avatar"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.target.src = defaultAvatar;
-            }}
-          />
+          <Image src={user?.avatar} alt="avatar" />
+
           {isHover && (
             <div className="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center bg-black/40">
               <p className=" cursor-pointer text-sm font-semibold text-white select-none">

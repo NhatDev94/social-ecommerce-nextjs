@@ -4,6 +4,7 @@ import Button from "./commons/Button";
 import Menu from "./commons/Menu";
 import { useAppContext } from "@/app/context";
 import defaultAvatar from "@/assets/images/defaultAvatar.jpg";
+import Image from "./commons/Image";
 
 export default function Header() {
   const router = useRouter();
@@ -40,14 +41,7 @@ export default function Header() {
   };
   const avatar = (
     <div className="w-full h-full rounded-full overflow-hidden border-2 border-gray-200">
-      <img
-        src={user?.avatar || defaultAvatar}
-        alt="avatar"
-        className="w-full h-full object-cover"
-        onError={(e) => {
-          e.target.src = defaultAvatar;
-        }}
-      />
+      <Image src={user?.avatar} alt="avatar" />
     </div>
   );
 
