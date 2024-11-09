@@ -48,7 +48,7 @@ export default function Upload({
   };
 
   return (
-    <div className="">
+    <div className="cursor-pointer">
       <input
         ref={ref}
         type="file"
