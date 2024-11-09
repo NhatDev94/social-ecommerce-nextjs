@@ -18,7 +18,7 @@ export default function Image({
   const [imageSrc, setImageSrc] = useState<any>(src || defaultAvatar);
 
   const handleError = () => {
-    !imageSrc && setImageSrc(defaultAvatar);
+    if (!imageSrc) setImageSrc(defaultAvatar);
   };
 
   useEffect(() => {

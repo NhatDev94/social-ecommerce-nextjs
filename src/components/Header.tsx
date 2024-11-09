@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import Button from "./commons/Button";
 import Menu from "./commons/Menu";
 import { useAppContext } from "@/app/context";
-import defaultAvatar from "@/assets/images/defaultAvatar.jpg";
 import Image from "./commons/Image";
 
 export default function Header() {
