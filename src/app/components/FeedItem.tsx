@@ -28,7 +28,7 @@ export default function FeedItem({ item }: Props) {
 
       <p className="text-sm font-normal text-black px-4 ">{item.description}</p>
       <div className="pt-4 w-full max-h-[480px] overflow-hidden">
-        <Image src={item.media[0].url} alt="media" />
+        <Image src={item.media[0].url} alt="media" layout="responsive" />
       </div>
 
       <div className="w-full flex items-center justify-between border-t border-black/10 mt-4">

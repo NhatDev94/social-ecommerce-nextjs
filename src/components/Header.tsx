@@ -40,7 +40,7 @@ export default function Header() {
   };
   const avatar = (
     <div className="w-full h-full rounded-full overflow-hidden border-2 border-gray-200">
-      <Image src={user?.avatar} alt="avatar" />
+      <Image src={user?.avatar} alt="avatar" width={36} height={36} />
     </div>
   );
 

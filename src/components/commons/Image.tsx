@@ -14,6 +14,7 @@ export default function Image({
   alt = "image",
   className = "w-full h-full object-cover",
   loading,
+  layout,
 }: Props) {
   const [imageSrc, setImageSrc] = useState<any>(src || defaultAvatar);
 
@@ -35,6 +36,7 @@ export default function Image({
       onError={handleError}
       loading={loading}
       className={className}
+      layout={layout}
     />
   );
 }
