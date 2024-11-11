@@ -15,11 +15,8 @@ type Props = {
 };
 
 export default function Form({ form, onSubmit, items }: Props) {
-  const handleSubmit = (value: any) => {
-    onSubmit(value);
-  };
   return (
-    <form onSubmit={form.handleSubmit(handleSubmit)}>
+    <form onSubmit={form.handleSubmit((value: any) => onSubmit(value))}>
       {items.map((item: Item, i: number) => (
         <div className="w-full mb-6" key={i}>
           <Input
