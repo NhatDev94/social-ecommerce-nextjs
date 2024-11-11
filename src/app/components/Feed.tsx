@@ -19,7 +19,7 @@ export default function Feed() {
     getFeed();
   }, []);
   return (
-    <div className="w-full px-64">
+    <div className="w-full lg:px-64">
       {feed.length > 0 &&
         feed.map((item: FeedType, i: number) => (
           <FeedItem item={item} key={i} />
