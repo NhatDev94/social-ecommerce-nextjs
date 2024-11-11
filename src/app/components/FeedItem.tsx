@@ -1,5 +1,5 @@
 import Avatar from "@/components/commons/Avatar";
-import Image from "@/components/commons/Image";
+import Image from "@/components/commons/image/Image";
 
 type Media = {
   url: string;

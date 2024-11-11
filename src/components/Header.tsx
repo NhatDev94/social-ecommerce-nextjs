@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import Button from "./commons/Button";
 import Menu from "./commons/Menu";
 import { useAppContext } from "@/app/context";
-import Image from "./commons/Image";
+import Image from "./commons/image/Image";
 
 export default function Header() {
   const router = useRouter();

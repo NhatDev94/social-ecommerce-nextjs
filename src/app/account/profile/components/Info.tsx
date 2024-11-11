@@ -6,7 +6,7 @@ import Loading from "@/components/commons/Loading";
 import Upload from "@/components/commons/Upload";
 import { FileUpload } from "@/libs/types/fileUpload";
 import { useState } from "react";
-import Image from "@/components/commons/Image";
+import Image from "@/components/commons/image/Image";
 
 export default function Info() {
   const { user, setUser } = useAppContext();

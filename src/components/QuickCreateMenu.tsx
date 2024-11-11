@@ -3,7 +3,7 @@ import useCreatePost from "@/hooks/useCreatePost";
 import Button from "./commons/Button";
 import Modal from "./commons/modals/Modal";
 import Upload from "./commons/Upload";
-import Image from "./commons/Image";
+import Image from "./commons/image/Image";
 
 export default function QuickCreateMenu({
   open,

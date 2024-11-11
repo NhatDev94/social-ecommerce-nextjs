@@ -1,8 +1,8 @@
 "use client";
-import ImageNext from "next/image";
 import { useEffect, useState } from "react";
 import defaultAvatar from "@/assets/images/defaultAvatar.jpg";
 import { useInView } from "react-intersection-observer";
+import ImagePresent from "./ImagePresenter";
 
 type Props = {
   [key: string]: any;
@@ -15,12 +15,11 @@ export default function Image({
   src,
   alt = "image",
   className = "w-full h-full object-cover",
-  loading,
+  loading = "lazy",
   layout,
   priority,
 }: Props) {
   const { ref, inView } = useInView({
-    /* Optional options */
     threshold: 0.1,
   });
 
@@ -36,18 +35,17 @@ export default function Image({
     }
   }, [src]);
   return (
-    <div ref={ref} className="w-full h-full">
-      <ImageNext
-        width={width}
-        height={height}
-        alt={alt}
-        src={imageSrc}
-        onError={handleError}
-        loading={inView ? "eager" : loading}
-        className={className}
-        layout={layout}
-        priority={priority || false}
-      />
-    </div>
+    <ImagePresent
+      ref={ref}
+      width={width}
+      height={height}
+      alt={alt}
+      imageSrc={imageSrc}
+      className={className}
+      layout={layout}
+      priority={priority || false}
+      loading={inView || priority ? "eager" : loading}
+      onError={handleError}
+    />
   );
 }

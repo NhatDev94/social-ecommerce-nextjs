@@ -1,6 +1,6 @@
 import QuickCreate from "@/components/QuickCreate";
 import Feed from "./components/Feed";
-import Image from "@/components/commons/Image";
+import Image from "@/components/commons/image/Image";
 
 export default function Home() {
   return (
