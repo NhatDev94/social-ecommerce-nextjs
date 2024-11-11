@@ -36,7 +36,7 @@ export default function Image({
     }
   }, [src]);
   return (
-    <div ref={ref}>
+    <div ref={ref} className="w-full h-full">
       <ImageNext
         width={width}
         height={height}
